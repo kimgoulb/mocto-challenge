@@ -19,7 +19,7 @@ class SignUpForm extends React.Component {
     this._handleSubmit = this._handleSubmit.bind(this);
     this._handleBack = this._handleBack.bind(this);
     this._updateFields = this._updateFields.bind(this);
-    this._saveUser = this._saveUser.bind(this);
+    this._createUser = this._createUser.bind(this);
   }
 
   _handleSubmit(event) {
@@ -49,7 +49,7 @@ class SignUpForm extends React.Component {
       this.setState({ step: currentStep + 1 });
     }
     else {
-      this._updateFields(currentStep, this._saveUser);
+      this._updateFields(currentStep, this._createUser);
     }
   }
 
@@ -77,10 +77,7 @@ class SignUpForm extends React.Component {
     }
   }
 
-  _saveUser() {
-    console.log('Fields:', this.state.fields);
-    this.props.showConfirmation(true, this.state.fields);
-
+  _createUser() {
     fetch('https://fakeapi.com/users/', {
       method: 'POST',
       headers: {
@@ -95,6 +92,9 @@ class SignUpForm extends React.Component {
     .catch(error => {
       console.error(error);
     });
+
+    console.log('User created!');
+    this.props.showConfirmation(true, this.state.fields);
   }
 
   render() {
