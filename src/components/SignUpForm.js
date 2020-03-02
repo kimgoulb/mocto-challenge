@@ -8,7 +8,6 @@ class SignUpForm extends React.Component {
     this.state = {
       step: 1,
       totalSteps: 2,
-      showConfirmation: false,
       fields: {
         email: null,
         password: null,
@@ -43,18 +42,17 @@ class SignUpForm extends React.Component {
 
   _nextStep() {
     let currentStep = this.state.step;
-    this._updateFields(currentStep);
 
     if (currentStep < this.state.totalSteps) {
+      this._updateFields(currentStep);
       this.setState({ step: currentStep + 1 });
     }
     else {
-      this.setState({ showConfirmation: true });
-      this.props.showConfirmation(true, this.fullname.value);
+      this._updateFields(currentStep, () => this.props.showConfirmation(true, this.state.fields));
     }
   }
 
-  _updateFields(currentStep) {
+  _updateFields(currentStep, callbackFunc) {
     let fields = this.state.fields;
 
     if (currentStep === 1) {
@@ -64,7 +62,7 @@ class SignUpForm extends React.Component {
           email: this.email.value,
           password: this.password.value
         }
-      });
+      }, callbackFunc);
     }
 
     if (currentStep === 2) {
@@ -74,7 +72,7 @@ class SignUpForm extends React.Component {
           fullname: this.fullname.value,
           age: this.age.value
         }
-      });
+      }, callbackFunc);
     }
   }
 

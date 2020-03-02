@@ -7,14 +7,33 @@ class SignUp extends React.Component {
     super(props);
     this.state = {
       showConfirmation: false,
-      fullname: null
+      fields: {}
     };
   }
 
-  _showConfirmation(status, fullname) {
+  _showConfirmation(status, fields) {
     this.setState({ 
       showConfirmation: status,
-      fullname: fullname
+      fields: fields
+    }, this._saveUser);
+  }
+
+  _saveUser() {
+    console.log('Fields:', this.state.fields);
+
+    fetch('https://fakeapi.com/users/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.state.fields),
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch (error => {
+      console.error(error);
     });
   }
 
@@ -26,7 +45,7 @@ class SignUp extends React.Component {
          ) : null}
 
         {(this.state.showConfirmation) ? (
-          <SignUpConfirmation fullname={this.state.fullname} /> 
+          <SignUpConfirmation fullname={this.state.fields.fullname} /> 
         ) : null}
       </div>
     );

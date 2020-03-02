@@ -2,8 +2,8 @@ import React from 'react';
 
 function FormField(props) {
   return(
-    <div class="form__field">
-      <label for={props.value.name}
+    <div className="form__field">
+      <label htmlFor={props.value.name}
              className="form__field-label">
         {props.value.label}
       </label>
