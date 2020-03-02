@@ -12,5 +12,5 @@
 ---
 
 - One consideration I always have when coding is how to organize code in a way that's clean and reusable. After I nailed the functionality, I spent some a little time cleaning things up on that front.
-- Took me just over an hour to complete the core functionality, an hour to organize and clean up the code and two hours to design (in Sketch) and then style the form with CSS. Pretty proud of that :)
+- Took me just over an hour to complete the core functionality, an hour to organize and clean up the code and two hours to design in Sketch and then style the form with CSS. Pretty proud of that :)
 - I played with the titles of the steps to give the user some context as to which part of the sign up flow they were in. However, building this outside the context of a real product makes it weird...
