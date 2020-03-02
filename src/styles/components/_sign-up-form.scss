@@ -7,7 +7,7 @@ $sign-up-form-max-width: 500px;
 }
 
 .sign-up-form__header {
-  margin-bottom: spacing(medium);
+  margin-bottom: spacing(large);
   text-align: center;
 }
 
@@ -24,4 +24,8 @@ $sign-up-form-max-width: 500px;
 
 .sign-up-form__description {
   margin-top: spacing(xxx-small);
+
+  @include breakpoint(small) {
+    margin-top: 5px;
+  }
 }

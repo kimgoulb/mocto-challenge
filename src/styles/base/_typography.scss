@@ -51,6 +51,10 @@ p {
   font-size: modular-scale(1);
   line-height: 1.6;
   margin: 0;
+
+  @include breakpoint(small) {
+    font-size: modular-scale(0);
+  }
 }
 
 p + p {
