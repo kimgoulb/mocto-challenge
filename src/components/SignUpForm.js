@@ -19,6 +19,7 @@ class SignUpForm extends React.Component {
     this._handleSubmit = this._handleSubmit.bind(this);
     this._handleBack = this._handleBack.bind(this);
     this._updateFields = this._updateFields.bind(this);
+    this._saveUser = this._saveUser.bind(this);
   }
 
   _handleSubmit(event) {
@@ -48,7 +49,7 @@ class SignUpForm extends React.Component {
       this.setState({ step: currentStep + 1 });
     }
     else {
-      this._updateFields(currentStep, () => this.props.showConfirmation(true, this.state.fields));
+      this._updateFields(currentStep, this._saveUser);
     }
   }
 
@@ -74,6 +75,26 @@ class SignUpForm extends React.Component {
         }
       }, callbackFunc);
     }
+  }
+
+  _saveUser() {
+    console.log('Fields:', this.state.fields);
+    this.props.showConfirmation(true, this.state.fields);
+
+    fetch('https://fakeapi.com/users/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.state.fields),
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
 
   render() {

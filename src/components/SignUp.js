@@ -15,27 +15,9 @@ class SignUp extends React.Component {
     this.setState({ 
       showConfirmation: status,
       fields: fields
-    }, this._saveUser);
-  }
-
-  _saveUser() {
-    console.log('Fields:', this.state.fields);
-
-    fetch('https://fakeapi.com/users/', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(this.state.fields),
-    })
-    .then(response => {
-      console.log(response);
-    })
-    .catch (error => {
-      console.error(error);
     });
   }
+
 
   render() {
     return (
