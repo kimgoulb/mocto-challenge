@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from '../../components/Form';
-import SignUpConfirmation from '../SignUpConfirmation';
+import Form from './Form';
+import SignUpConfirmation from './SignUpConfirmation';
 
 class SignUp extends React.Component {
   constructor(props) {
