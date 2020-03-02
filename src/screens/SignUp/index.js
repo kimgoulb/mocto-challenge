@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from '../../components/Form';
 import SignUpConfirmation from '../SignUpConfirmation';
 
 class SignUp extends React.Component {
@@ -31,7 +32,7 @@ class SignUp extends React.Component {
     this._prevStep();
   }
 
-  _prevStep(event) {
+  _prevStep() {
     let currentStep = this.state.step;
     this._updateFields(currentStep);
 
@@ -79,76 +80,66 @@ class SignUp extends React.Component {
   render() {
     return (
       <div>
-        <div class="sign-up">
+        <div className="sign-up">
           <h1>Sign Up</h1>
-          {/* <Form fields={[
-            {
-              name: "email",
-              type: "email"
-            },
-            {
-              name: "password",
-              type: "password"
-            },
-            {
-              name: "fullname",
-              type: "text"
-            },
-            {
-              name: "age",
-              type: "number"
-            }
-          ]} /> */}
-
+          
           {(!this.state.showConfirmation && this.state.step === 1) ? (
-          <div class="step step-1">
-            <form onSubmit={this._handleSubmit}>
-              <div class="field">
-                <label for="email">Email Address</label>
-                <input type="email"
-                  id="email"
-                  name="email"
-                  ref={(input) => this.email = input}
-                  defaultValue={this.state.fields.email} />
-              </div>
-
-              <div class="field">
-                <label for="password">Password</label>
-                <input type="password"
-                  id="password"
-                  name="password"
-                  ref={(input) => this.password = input}
-                  defaultValue={this.state.fields.password} />
-              </div>
-              <input type="submit" value="Continue" />
-            </form>
+          <div className={`step step-${this.state.step}`}>
+            <h2>Set your email</h2>
+            <Form onSubmit={this._handleSubmit}
+                  submitButton={{
+                    text: "Continue"
+                  }}
+                  backButton={{
+                    show: false
+                  }}
+                  fields={[
+                    {
+                      name: "email",
+                      type: "email",
+                      ref: ((input) => this.email = input),
+                      defaultValue: this.state.fields.email,
+                      label: "Email Address"
+                    },
+                    {
+                      name: "password",
+                      type: "password",
+                      ref: ((input) => this.password = input),
+                      defaultValue: this.state.fields.password,
+                      label: "Password"
+                    }
+                  ]} />
           </div>
           ) : null}
 
           {(!this.state.showConfirmation && this.state.step === 2) ? (
-            <div class="step step-2">
-              <form onSubmit={this._handleSubmit}>
-                <div class="field">
-                  <label for="fullname">Full Name</label>
-                  <input type="text"
-                    id="fullname"
-                    name="fullname"
-                    ref={(input) => this.fullname = input}
-                    defaultValue={this.state.fields.fullname} />
-                </div>
-
-                <div class="field">
-                  <label for="age">Age</label>
-                  <input type="number"
-                    id="age"
-                    name="age"
-                    ref={(input) => this.age = input}
-                    defaultValue={this.state.fields.age} />
-                </div>
-
-                <input type="submit" value="Submit" />
-                <button name="back" onClick={this._handleBack}>Back</button>
-              </form>
+            <div className="step step-2">
+              <h2>Set your password</h2>
+              <Form onSubmit={this._handleSubmit}
+                    submitButton={{
+                      text: "Submit"
+                    }}
+                    backButton={{
+                      show: true,
+                      text: "Back",
+                      onClick: this._handleBack
+                    }}
+                    fields={[
+                      {
+                        name: "fullname",
+                        type: "text",
+                        ref: ((input) => this.fullname = input),
+                        defaultValue: this.state.fields.fullname,
+                        label: "Full Name"
+                      },
+                      {
+                        name: "age",
+                        type: "number",
+                        ref: ((input) => this.age = input),
+                        defaultValue: this.state.fields.age,
+                        label: "Age"
+                      }
+                    ]} />
             </div>
           ) : null }
           
