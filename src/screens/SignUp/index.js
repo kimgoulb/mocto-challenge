@@ -7,11 +7,18 @@ class SignUp extends React.Component {
     this.state = {
       step: 1,
       totalSteps: 2,
-      showConfirmation: false
+      showConfirmation: false,
+      fields: {
+        email: null,
+        password: null,
+        fullname: null,
+        age: null
+      }
     };
 
     this._handleSubmit = this._handleSubmit.bind(this);
     this._handleBack = this._handleBack.bind(this);
+    this._updateFields = this._updateFields.bind(this);
   }
 
   _handleSubmit(event) {
@@ -26,6 +33,7 @@ class SignUp extends React.Component {
 
   _prevStep(event) {
     let currentStep = this.state.step;
+    this._updateFields(currentStep);
 
     if (currentStep > 1) {
       this.setState({ step: currentStep - 1 });
@@ -34,12 +42,37 @@ class SignUp extends React.Component {
 
   _nextStep() {
     let currentStep = this.state.step;
+    this._updateFields(currentStep);
 
     if (currentStep < this.state.totalSteps) {
       this.setState({ step: currentStep + 1 });
     }
     else {
       this.setState({ showConfirmation: true });
+    }
+  }
+
+  _updateFields(currentStep) {
+    let fields = this.state.fields;
+
+    if (currentStep === 1) {
+      this.setState({
+        fields: {
+          ...fields,
+          email: this.email.value,
+          password: this.password.value
+        }
+      });
+    }
+
+    if (currentStep === 2) {
+      this.setState({
+        fields: {
+          ...fields,
+          fullname: this.fullname.value,
+          age: this.age.value
+        }
+      });
     }
   }
 
@@ -75,7 +108,8 @@ class SignUp extends React.Component {
                 <input type="email"
                   id="email"
                   name="email"
-                  ref={(input) => this.email = input} />
+                  ref={(input) => this.email = input}
+                  defaultValue={this.state.fields.email} />
               </div>
 
               <div class="field">
@@ -83,7 +117,8 @@ class SignUp extends React.Component {
                 <input type="password"
                   id="password"
                   name="password"
-                  ref={(input) => this.password = input} />
+                  ref={(input) => this.password = input}
+                  defaultValue={this.state.fields.password} />
               </div>
               <input type="submit" value="Continue" />
             </form>
@@ -98,7 +133,8 @@ class SignUp extends React.Component {
                   <input type="text"
                     id="fullname"
                     name="fullname"
-                    ref={(input) => this.fullname = input} />
+                    ref={(input) => this.fullname = input}
+                    defaultValue={this.state.fields.fullname} />
                 </div>
 
                 <div class="field">
@@ -106,7 +142,8 @@ class SignUp extends React.Component {
                   <input type="number"
                     id="age"
                     name="age"
-                    ref={(input) => this.age = input} />
+                    ref={(input) => this.age = input}
+                    defaultValue={this.state.fields.age} />
                 </div>
 
                 <input type="submit" value="Submit" />
