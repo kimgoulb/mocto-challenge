@@ -16,4 +16,12 @@ $sign-up-form-max-width: 500px;
   font-size: modular-scale(-1);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  
+  @include breakpoint(small) {
+    font-size: modular-scale(-2);
+  }
+}
+
+.sign-up-form__description {
+  margin-top: spacing(xxx-small);
 }

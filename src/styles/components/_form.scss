@@ -2,6 +2,21 @@
   margin-top: spacing(x-small);
 }
 
+.form__field {
+  position: relative;
+}
+
+// .form__field-label {
+//   position: absolute;
+//   left: spacing(xx-small);
+//   top: 5px;
+// }
+
+// .form__field-input:focus ~ .form__field-label {
+//   color: $purple;
+//   font-size: modular-scale(-2);
+// }
+
 .form__actions {
   @include margin(spacing(small) null null);
   text-align: center;

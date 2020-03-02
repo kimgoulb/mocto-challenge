@@ -26,15 +26,15 @@ h1 {
   font-weight: $bold-font-weight;
   text-align: center;
 
-  @include breakpoint(mobile) {
-    font-size: modular-scale(4);
+  @include breakpoint(small) {
+    font-size: modular-scale(6);
   }
 }
 
 h2 {
   font-size: modular-scale(4);
 
-  @include breakpoint(mobile) {
+  @include breakpoint(small) {
     font-size: modular-scale(3);
   }
 }
@@ -42,13 +42,13 @@ h2 {
 h3 {
   font-size: modular-scale(3);
 
-  @include breakpoint(mobile) {
+  @include breakpoint(small) {
     font-size: modular-scale(1);
   }
 }
 
 p {
-  font-size: modular-scale(0);
+  font-size: modular-scale(1);
   line-height: 1.6;
   margin: 0;
 }
@@ -57,7 +57,7 @@ p + p {
   display: block;
   margin-top: spacing(medium);
 
-  @include breakpoint(mobile) {
+  @include breakpoint(small) {
     margin-top: spacing(x-small);
   }
 }
@@ -68,7 +68,7 @@ blockquote {
   font-style: italic;
   margin: spacing(large);
 
-  @include breakpoint(mobile) {
+  @include breakpoint(small) {
     font-size: emCal(22px);
   }
 
