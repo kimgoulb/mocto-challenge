@@ -1,0 +1,19 @@
+$sign-up-form-max-width: 500px;
+
+.sign-up-form {
+  @include margin(null auto);
+  @include padding(spacing(x-large) spacing(small) spacing(large));
+  max-width: $sign-up-form-max-width;
+}
+
+.sign-up-form__header {
+  margin-bottom: spacing(medium);
+  text-align: center;
+}
+
+.sign-up-form__steps {
+  color: $medium-gray;
+  font-size: modular-scale(-1);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

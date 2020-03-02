@@ -1,0 +1,85 @@
+@function emCal($pixelBasedNum, $emBase: 16px){
+  @return $pixelBasedNum / $emBase * 1em;
+}
+
+// Breakpoints
+$small-screen: 768px;
+$medium-screen: 1024px;
+$large-screen: 1280px;
+$xlarge-screen: 1440px;
+$custom-medium-screen: 900px;
+
+// Colors
+$purple: #3B17AD;
+$white: #fff;
+$black: #000;
+$dark-gray: #333;
+$medium-gray: #777;
+$light-gray: #ddd;
+$offwhite: #F7F7F7;
+
+// Font Colors
+$base-font-color: $dark-gray;
+$secondary-font-color: $medium-gray;
+$accent-color: $purple;
+$accent-color-shade: shade($purple, 50%);
+
+// Typography
+$base-font-family: Rubik, Helvetica, san-serif;
+$heading-font-family: "Source Serif Pro", Times, serif;
+
+// Font Weights
+$light-font-weight: 300;
+$book-font-weight: 400;
+$medium-font-weight: 500;
+$bold-font-weight: 700;
+$italic-font-style: italic;
+
+// Font Sizes
+$base-font-size: 1em;
+$small-font-size: 12px;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.25;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+
+// Spacing
+$spacing: (
+  "xxx-small": 10px,
+  "xx-small": 15px,
+  "x-small":  20px,
+  "small":    30px,
+  "medium":   40px,
+  "large":    50px,
+  "x-large":  80px,
+  "xx-large":  100px
+);
+
+// Z index
+$lowest-z-index: -1;
+$base-z-index: 0;
+$above-z-index: 1;
+$highest-z-index: 999;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Forms
+$form-input-height: 60px;
+$form-base-border-color: $medium-gray;
+$form-base-border: solid 1px $form-base-border-color;
+
+// Animations
+$base-duration: 350ms;
+$base-timing: cubic-bezier(.23, 1, .32, 1);
+$base-ease-timing: ease-in-out;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Field(props) {
+function FormField(props) {
   return(
-    <div class="field">
+    <div class="form__field">
       <label for={props.value.name}>{props.value.label}</label>
       <input type={props.value.type}
              id={props.value.name}
@@ -13,4 +13,4 @@ function Field(props) {
   );
 }
 
-export default Field;
+export default FormField;

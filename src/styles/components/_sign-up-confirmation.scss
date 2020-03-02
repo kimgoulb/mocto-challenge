@@ -1,0 +1,23 @@
+$sign-up-confirmation-max-width: 500px;
+
+.sign-up-confirmation {
+  @include padding(spacing(small));
+  align-items: center;
+  background-color: $purple;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+.sign-up-confirmation__content {
+  max-width: $sign-up-confirmation-max-width;
+}
+
+.sign-up-confirmation__heading {
+  color: #fff;
+  margin-bottom: spacing(x-small);
+}

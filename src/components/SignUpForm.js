@@ -80,66 +80,74 @@ class SignUpForm extends React.Component {
 
   render() {
     return (
-      <div className="sign-up">
-        <h1>Sign Up</h1>
-
+      <div className="sign-up-form">
         {(this.state.step === 1) ? (
           <div className={`step step-${this.state.step}`}>
-            <h2>Set your email</h2>
-            <Form onSubmit={this._handleSubmit}
-              submitButton={{
-                text: "Continue"
-              }}
-              backButton={{
-                show: false
-              }}
-              fields={[
-                {
-                  name: "email",
-                  type: "email",
-                  ref: ((input) => this.email = input),
-                  defaultValue: this.state.fields.email,
-                  label: "Email Address"
-                },
-                {
-                  name: "password",
-                  type: "password",
-                  ref: ((input) => this.password = input),
-                  defaultValue: this.state.fields.password,
-                  label: "Password"
-                }
-              ]} />
+            <div className="sign-up-form__header">
+              <span className="sign-up-form__steps">Step 1 of 2</span>
+              <h1 className="sign-up-form__heading">Account Info</h1>
+              <p className="sign-up-form__description">Set an email and password for your account.</p>
+            </div>
+            <Form className="sign-up-form__form"
+                  onSubmit={this._handleSubmit}
+                  submitButton={{
+                    text: "Continue"
+                  }}
+                  backButton={{
+                    show: false
+                  }}
+                  fields={[
+                    {
+                      name: "email",
+                      type: "email",
+                      ref: ((input) => this.email = input),
+                      defaultValue: this.state.fields.email,
+                      label: "Email Address"
+                    },
+                    {
+                      name: "password",
+                      type: "password",
+                      ref: ((input) => this.password = input),
+                      defaultValue: this.state.fields.password,
+                      label: "Password"
+                    }
+                  ]} />
           </div>
         ) : null}
 
         {(this.state.step === 2) ? (
           <div className="step step-2">
-            <h2>Set your password</h2>
-            <Form onSubmit={this._handleSubmit}
-              submitButton={{
-                text: "Submit"
-              }}
-              backButton={{
-                show: true,
-                text: "Back",
-                onClick: this._handleBack
-              }}
-              fields={[
-                {
-                  name: "fullname",
-                  type: "text",
-                  ref: ((input) => this.fullname = input),
-                  defaultValue: this.state.fields.fullname,
-                  label: "Full Name"
-                },
-                {
-                  name: "age",
-                  type: "number",
-                  ref: ((input) => this.age = input),
-                  defaultValue: this.state.fields.age,
-                  label: "Age"
-                }
-              ]} />
+            <div className="sign-up-form__header">
+              <span className="sign-up-form__steps">Step 2 of 2</span>
+              <h1 className="sign-up-form__heading">Personal Details</h1>
+              <p className="sign-up-form__description">Set up your initial profile.</p>
+            </div>
+            <Form className="sign-up-form__form"
+                  onSubmit={this._handleSubmit}
+                  submitButton={{
+                    text: "Submit"
+                  }}
+                  backButton={{
+                    show: true,
+                    text: "Back",
+                    onClick: this._handleBack
+                  }}
+                  fields={[
+                    {
+                      name: "fullname",
+                      type: "text",
+                      ref: ((input) => this.fullname = input),
+                      defaultValue: this.state.fields.fullname,
+                      label: "Full Name"
+                    },
+                    {
+                      name: "age",
+                      type: "number",
+                      ref: ((input) => this.age = input),
+                      defaultValue: this.state.fields.age,
+                      label: "Age"
+                    }
+                  ]} />
           </div>
         ) : null}
       </div>

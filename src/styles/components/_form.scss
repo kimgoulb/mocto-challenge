@@ -1,0 +1,29 @@
+.form__field + .form__field {
+  margin-top: spacing(x-small);
+}
+
+.form__actions {
+  @include margin(spacing(small) null null);
+  text-align: center;
+
+  input,
+  button {
+    @include margin(null auto);
+  }
+}
+
+.form__button {
+  cursor: pointer;
+}
+
+.form__button--link {
+  appearance: none;
+  border: 0;
+  border-bottom: currentColor solid 1px;
+  margin-top: spacing(x-small);
+  padding: 0;
+
+  &:hover {
+    color: $purple;
+  }
+}

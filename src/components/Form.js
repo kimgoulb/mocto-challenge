@@ -1,24 +1,30 @@
 import React from 'react';
-import Field from './Field';
+import FormField from './FormField';
 
 class Form extends React.Component {
   render() {
     return (
-      <form onSubmit={this.props.onSubmit}>
-        {this.props.fields.map((value, index) => {
-          return <Field key={index} value={value} />
-        })}
+      <form className={this.props.className} onSubmit={this.props.onSubmit}>
+        <div className="form__fields">
+          {this.props.fields.map((value, index) => {
+            return <FormField key={index} value={value} />
+          })}
+        </div>
 
-        <input type="submit"
-               name="submit"
-               value={this.props.submitButton.text} />
-        
-        {(this.props.backButton.show) ? (
-          <button name="back"
-                  onClick={this.props.backButton.onClick}>
-            {this.props.backButton.text}
-          </button>
-        ) : null}
+        <div className="form__actions">
+          <input type="submit"
+                name="submit"
+                value={this.props.submitButton.text}
+                className="form__button" />
+          
+          {(this.props.backButton.show) ? (
+            <button name="back"
+                    onClick={this.props.backButton.onClick}
+              className="form__button form__button--link">
+              {this.props.backButton.text}
+            </button>
+          ) : null}
+        </div>
       </form>
     );
   }
